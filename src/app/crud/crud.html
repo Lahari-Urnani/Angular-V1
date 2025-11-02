@@ -1,0 +1,65 @@
+<p>crud works!</p>
+<table>
+    <tr>
+        <td>
+            <label class="heading">Data Binding</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="userName" style="padding-right: 10px;">User Name</label>
+            <input class="textbox" type="text" value="{{userName}}"> 
+            <label>(Interpolation)</label>
+            <!-- if a value is passed as shown above it is called "Interpolation"-->
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="userName" style="padding-right: 10px;">User Name</label>
+            <input class="textbox" type="text" [value]="userName"> 
+            <label>(Data Binding)</label>
+            <!-- if a value is passed as shown above it is called "DataBinding"-->
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="heading">Event Binding</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" [(ngModel)]="userName">
+            <label>(Two Way Data Binding using ngModel)</label>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 10px;">
+            <button class="button" (click)="ShowAlert()" class="">Show Alert</button>
+        </td>
+        <td style="padding-left:30px; width: 100%;">
+            <select (change)="OnStateChange($event.target)">
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Kerala">Kerala</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="heading">Signal</label>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-right: 20px;">
+            {{emailId()}} <!-- Signals should be accesed like a method-->
+        </td>
+        <td>
+            {{rollnumber()}}
+            <button (click)="OnRollNumberChange()">Change Roll Number</button>
+        </td>
+        <td>
+            {{studentDetails().studentname}} - {{studentDetails().rollnumber}} - {{studentDetails().emailId}}
+            <button (click)="EditEmail('lahariurnani4@gmail.com')">Edit Email Address</button>
+        </td>
+    </tr>
+</table>
